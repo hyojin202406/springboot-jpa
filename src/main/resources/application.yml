@@ -1,0 +1,33 @@
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+  port: 9090
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+    defer-datasource-initialization: true
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+  h2:
+    console:
+      enabled: true
+
+## p6spy
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
+
+# logger
+logging.level:
+  org.hibernate.SQL: debug
